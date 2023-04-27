@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 
-export const BikeContext = createContext();
+export const BikeData = createContext(null);
 
-export const BikeContextProvider = (props) => {
+function BikeContext({ children }) {
   const [error, setError] = useState(null);
   const [bikes, setBikes] = useState(null);
   const [bikesNumber, setBikesNumber] = useState(null);
@@ -25,8 +25,10 @@ export const BikeContextProvider = (props) => {
   }, []);
 
   return (
-    <BikeContext.Provider value={{ bikes, bikesNumber, error }}>
-      {props.children}
-    </BikeContext.Provider>
+    <BikeData.Provider value={{ bikes, bikesNumber, error }}>
+      {children}
+    </BikeData.Provider>
   );
-};
+}
+
+export default BikeContext;

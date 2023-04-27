@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { BikeContext } from "../store/BikeContext.js";
+import { BikeData } from "../store/BikeContext.js";
 import { GrLocation } from "react-icons/gr";
 import { BiTimeFive } from "react-icons/bi";
 import { TbCurrencyEuro } from "react-icons/tb";
 import useConvertDate from "../hooks/useConvertDate.js";
 
 function BikeCards() {
-  const { bikes, bikesNumber, error } = useContext(BikeContext);
+  const { bikes, bikesNumber, error } = useContext(BikeData);
   const convertDate = useConvertDate();
 
   console.log("bikes :>> ", bikes);
@@ -29,7 +29,7 @@ function BikeCards() {
                   />
                 </div>
               )}
-              <div className="bottom-9 left-1 p-1 inline-block rounded-md bg-amber-400 relative">
+              <div className="bottom-9 left-1 pt-1 px-1 inline-block rounded-md bg-amber-400 relative">
                 <span className="flex flex-row">
                   <p>{bike.price}</p>
                   <TbCurrencyEuro className="text-lg" />
