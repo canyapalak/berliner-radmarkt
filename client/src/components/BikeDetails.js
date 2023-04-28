@@ -58,46 +58,13 @@ export default function BikeDetails() {
 
   return (
     <div className="w-8/12  mx-auto flex flex-col gap-2 ">
-      <div
-        className="w-8/12 mx-auto flex flex-row justify-between gap-1 rounded-sm p-2
-           border-2 border-neutral-400 border-opacity-30 shadow-md"
-      >
-        <div
-          className="flex flex-row gap-1 justify-center bg-gradient-to-b from-orange-300 to-orange-400 
-            hover:bg-gradient-to-b hover:from-orange-200 hover:to-orange-300 rounded-md px-2 py-1 shadow-md 
-            cursor-pointer hover:bg-lime-200"
-          onClick={handleFavorite}
-        >
-          {!isToggled ? (
-            <span className="flex flex-row gap-1">
-              <FaRegStar className="mt-[5px]" />
-              <p className="pt-1">Anzeige folgen</p>
-            </span>
-          ) : (
-            <span className="flex flex-row gap-1">
-              <FaStar className="mt-[5px]" />
-              <p className="pt-1">Anzeige entfolgen</p>
-            </span>
-          )}
-        </div>
-        <div
-          className="flex flex-row gap-1 justify-center bg-gradient-to-b from-lime-300 to-lime-400 
-            hover:bg-gradient-to-b hover:from-lime-200 hover:to-lime-300 rounded-md px-2 py-1 shadow-md 
-            cursor-pointer hover:bg-lime-200"
-        >
-          <RiMessage3Line className="mt-[5px]" />
-          <p className="pt-1">Nachricht schreiben</p>
-        </div>
-      </div>
-
       <div className="w-2/3 relative border-2 border-neutral-400 border-opacity-30 rounded-sm shadow-md mx-auto">
         <Image
           src={oneBike.photos?.[photoIndex]}
           alt={`Photo ${photoIndex}`}
           width={1500}
           height={1000}
-          layout="responsive"
-          className="relative"
+          className="relative object-contain cursor-pointer"
         />
         <span
           className="flex flex-row gap-1 absolute bottom-2 right-0 mr-2 bg-gray-800 
@@ -159,20 +126,50 @@ export default function BikeDetails() {
        border-neutral-400 border-opacity-30 rounded-sm shadow-md"
       >
         <div className="flex flex-col text-left">
-          <p className="font-extrabold text-lg">{oneBike.title}</p>
-          <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
-            <p className="font-bold text-lg">{oneBike.price + " €"}</p>
-          </span>
-          <div className="flex flex-row justify-between mb-2 mt-2">
-            <span className="flex flex-row gap-1">
-              <p className="font-bold text-gray-600">Type:</p>
-              <p>{oneBike.type}</p>
-            </span>
-            <span className="flex flex-row gap-1">
-              <p className="font-bold text-gray-600">Art:</p>
-              <p>{oneBike.frame}</p>
-            </span>
+          <div className="flex flex-row justify-around mb-2">
+            <p className="font-extrabold text-lg">{oneBike.title}</p>
+            <div
+              className="justify-around bg-gradient-to-b from-amber-300 to-amber-400 
+                hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-300 rounded-md px-2 py-1 shadow-md 
+                cursor-pointer mr-0 ml-auto"
+              onClick={handleFavorite}
+            >
+              {!isToggled ? (
+                <span className="flex flex-row gap-1">
+                  <FaRegStar className="mt-[1px]" />
+                </span>
+              ) : (
+                <span className="flex flex-row gap-1">
+                  <FaStar className="mt-[1px]" />
+                </span>
+              )}
+            </div>
           </div>
+
+          <div className="flex flex-row">
+            <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
+              <p className="font-bold text-lg">{oneBike.price + " €"}</p>
+            </span>
+
+            <div
+              className="flex flex-row gap-1 justify-center bg-gradient-to-b from-lime-300 to-lime-400 
+              hover:bg-gradient-to-b hover:from-lime-200 hover:to-lime-300 rounded-md px-2 py-1 shadow-md 
+              cursor-pointer hover:bg-lime-200"
+            >
+              <RiMessage3Line className="mt-[5px]" />
+              <p className="pt-1">Nachricht schreiben</p>
+            </div>
+          </div>
+
+          <span className="flex flex-row gap-1 mt-3 mb-1">
+            <p className="font-bold text-gray-600">Typ:</p>
+            <p>{oneBike.type}</p>
+          </span>
+          <span className="flex flex-row gap-1 mb-1">
+            <p className="font-bold text-gray-600">Art:</p>
+            <p>{oneBike.frame}</p>
+          </span>
+
           <p className="font-bold text-gray-600">Beschreibung:</p>
           <p>{oneBike.description}</p>
         </div>
