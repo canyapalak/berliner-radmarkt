@@ -7,7 +7,6 @@ import { RiMessage3Line } from "react-icons/ri";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { BiTimeFive } from "react-icons/bi";
-import { TbCurrencyEuro } from "react-icons/tb";
 import useConvertDateAndTime from "@/hooks/useConvertDateAndTime";
 
 export default function BikeDetails() {
@@ -59,20 +58,6 @@ export default function BikeDetails() {
 
   return (
     <div className="w-8/12  mx-auto flex flex-col gap-2 ">
-      <div
-        className="flex flex-row w-8/12 mx-auto justify-between gap-1 rounded-sm px-2
-           border-2 border-neutral-400 border-opacity-30 shadow-md "
-      >
-        <span className="flex flex-row gap-1 pt-2.5">
-          <BiTimeFive className="mt-0.5" />
-          <p className="text-left">{convertDateAndTime(oneBike.postTime)}</p>
-        </span>
-        <span className="flex flex-row gap-1 mb-2 pt-2.5">
-          <GrLocation className="mt-0.5" />
-          <p className="text-left ">{oneBike.district}</p>
-        </span>
-      </div>
-
       <div
         className="w-8/12 mx-auto flex flex-row justify-between gap-1 rounded-sm p-2
            border-2 border-neutral-400 border-opacity-30 shadow-md"
@@ -138,6 +123,34 @@ export default function BikeDetails() {
           >
             <AiOutlineCaretRight className="text-2xl" />
           </button>
+        </div>
+      </div>
+
+      <div
+        className="flex flex-row w-8/12 mx-auto justify-between gap-1 rounded-sm px-2
+           border-2 border-neutral-400 border-opacity-30 shadow-md "
+      >
+        <div className="flex flex-col">
+          <span className="flex flex-row gap-1 pt-2.5">
+            <BiTimeFive className="mt-0.5" />
+            <p className="text-left">{convertDateAndTime(oneBike.postTime)}</p>
+          </span>
+          <span className="flex flex-row gap-1 mb-1 ">
+            <GrLocation className="mt-0.5" />
+            <p className="text-left ">{oneBike.district}</p>
+          </span>
+        </div>
+        <div className="flex flex-row gap-2 my-2">
+          <p className="my-auto text-lg underline hover:text-gray-600 cursor-pointer">
+            {oneBike.userName}
+          </p>
+          <Image
+            src={oneBike.userPicture}
+            alt="Avatar"
+            width={50}
+            height={50}
+            className="rounded-full shadow-sm border-1 border-gray-400 border-opacity-30 border-[1px]"
+          />
         </div>
       </div>
 

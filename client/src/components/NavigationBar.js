@@ -2,6 +2,8 @@ import Image from "next/image";
 import Logo from "../assets/app-logo.png";
 import ProfileIcon from "../assets/profile.png";
 import Link from "next/link";
+import Deutsch from "../assets/deutsch.png";
+import English from "../assets/english.png";
 
 function NavigationBar() {
   return (

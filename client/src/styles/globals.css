@@ -17,8 +17,9 @@
 }
 
 body {
-  padding: 0px !important;
+
   margin: 0px !important;
+  padding-bottom: 4rem
 }
 
 html {
