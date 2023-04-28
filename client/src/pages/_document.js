@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="font-spartan ">
+      <body className="font-spartan">
         <NavigationBar />
         <Main />
         <Footer />

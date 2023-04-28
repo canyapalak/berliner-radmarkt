@@ -8,7 +8,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { BiTimeFive } from "react-icons/bi";
 import { TbCurrencyEuro } from "react-icons/tb";
-import useConvertDate from "../hooks/useConvertDate";
+import useConvertDateAndTime from "@/hooks/useConvertDateAndTime";
 
 export default function BikeDetails() {
   const [oneBike, setOneBike] = useState("");
@@ -17,7 +17,7 @@ export default function BikeDetails() {
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
   const { id } = router.query;
-  const convertDate = useConvertDate();
+  const convertDateAndTime = useConvertDateAndTime();
 
   console.log("_id", id);
 
@@ -58,7 +58,53 @@ export default function BikeDetails() {
   };
 
   return (
-    <div className="w-8/12  mx-auto flex flex-col gap-2">
+    <div className="w-8/12  mx-auto flex flex-col gap-2 ">
+      <div
+        className="flex flex-row w-8/12 mx-auto justify-between gap-1 rounded-sm px-2
+           border-2 border-neutral-400 border-opacity-30 shadow-md "
+      >
+        <span className="flex flex-row gap-1 pt-2.5">
+          <BiTimeFive className="mt-0.5" />
+          <p className="text-left">{convertDateAndTime(oneBike.postTime)}</p>
+        </span>
+        <span className="flex flex-row gap-1 mb-2 pt-2.5">
+          <GrLocation className="mt-0.5" />
+          <p className="text-left ">{oneBike.district}</p>
+        </span>
+      </div>
+
+      <div
+        className="w-8/12 mx-auto flex flex-row justify-between gap-1 rounded-sm p-2
+           border-2 border-neutral-400 border-opacity-30 shadow-md"
+      >
+        <div
+          className="flex flex-row gap-1 justify-center bg-gradient-to-b from-orange-300 to-orange-400 
+            hover:bg-gradient-to-b hover:from-orange-200 hover:to-orange-300 rounded-md px-2 py-1 shadow-md 
+            cursor-pointer hover:bg-lime-200"
+          onClick={handleFavorite}
+        >
+          {!isToggled ? (
+            <span className="flex flex-row gap-1">
+              <FaRegStar className="mt-[5px]" />
+              <p className="pt-1">Anzeige folgen</p>
+            </span>
+          ) : (
+            <span className="flex flex-row gap-1">
+              <FaStar className="mt-[5px]" />
+              <p className="pt-1">Anzeige entfolgen</p>
+            </span>
+          )}
+        </div>
+        <div
+          className="flex flex-row gap-1 justify-center bg-gradient-to-b from-lime-300 to-lime-400 
+            hover:bg-gradient-to-b hover:from-lime-200 hover:to-lime-300 rounded-md px-2 py-1 shadow-md 
+            cursor-pointer hover:bg-lime-200"
+        >
+          <RiMessage3Line className="mt-[5px]" />
+          <p className="pt-1">Nachricht schreiben</p>
+        </div>
+      </div>
+
       <div className="w-2/3 relative border-2 border-neutral-400 border-opacity-30 rounded-sm shadow-md mx-auto">
         <Image
           src={oneBike.photos?.[photoIndex]}
@@ -96,47 +142,26 @@ export default function BikeDetails() {
       </div>
 
       <div
-        className="flex flex-col text-center mx-auto gap-2 w-8/12 p-2 border-2 border-neutral-400
-        border-opacity-30 rounded-sm shadow-md text-sm 2xl:text-base"
+        className="flex flex-col text-center mx-auto gap-2 w-8/12 p-2 border-2
+       border-neutral-400 border-opacity-30 rounded-sm shadow-md"
       >
-        <div
-          className="flex flex-row justify-between gap-1 bg-neutral-200 rounded-md px-2 pt-3
-           border-gray-300 border-[1px] shadow-md "
-        >
-          <span className="flex flex-row gap-1 mb-2">
-            <GrLocation className="mt-0.5" />
-            <p className="text-left ">{oneBike.district}</p>
+        <div className="flex flex-col text-left">
+          <p className="font-extrabold text-lg">{oneBike.title}</p>
+          <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
+            <p className="font-bold text-lg">{oneBike.price + " €"}</p>
           </span>
-          <span className="flex flex-row gap-1">
-            <BiTimeFive className="mt-0.5" />
-            <p className="text-left ">{convertDate(oneBike.postTime)}</p>
-          </span>
-        </div>
-        <div className="flex flex-row justify-between">
-          <div
-            className="flex flex-row gap-1 justify-center bg-lime-300 rounded-md px-2 py-1
-             border-gray-300 border-[1px] shadow-md cursor-pointer hover:bg-lime-200"
-          >
-            <RiMessage3Line className="text-lg mt-1" />
-            <p className="pt-1">Nachricht schreiben</p>
+          <div className="flex flex-row justify-between mb-2 mt-2">
+            <span className="flex flex-row gap-1">
+              <p className="font-bold text-gray-600">Type:</p>
+              <p>{oneBike.type}</p>
+            </span>
+            <span className="flex flex-row gap-1">
+              <p className="font-bold text-gray-600">Art:</p>
+              <p>{oneBike.frame}</p>
+            </span>
           </div>
-          <div
-            className="flex flex-row gap-1 justify-center bg-orange-300 rounded-md px-2 py-1
-             border-gray-300 border-[1px] shadow-md cursor-pointer hover:bg-orange-200"
-            onClick={handleFavorite}
-          >
-            {!isToggled ? (
-              <span className="flex flex-row gap-1">
-                <FaRegStar className="text-lg mt-1" />
-                <p className="pt-1">Anzeige folgen</p>
-              </span>
-            ) : (
-              <span className="flex flex-row gap-1">
-                <FaStar className="text-lg mt-1" />
-                <p className="pt-1">Anzeige entfolgen</p>
-              </span>
-            )}
-          </div>
+          <p className="font-bold text-gray-600">Beschreibung:</p>
+          <p>{oneBike.description}</p>
         </div>
       </div>
     </div>

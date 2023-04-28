@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { BikeData } from "../store/BikeContext.js";
 import { GrLocation } from "react-icons/gr";
 import { BiTimeFive } from "react-icons/bi";
-import { TbCurrencyEuro } from "react-icons/tb";
 import useConvertDate from "../hooks/useConvertDate.js";
 import Link from "next/link.js";
 
@@ -38,12 +37,9 @@ function BikeCards() {
                   />
                 </div>
               )}
-              <div className="bottom-9 float-right mr-2 pt-1 px-1 inline-block rounded-sm bg-amber-400 relative">
-                <span className="flex flex-row">
-                  <p>{bike.price}</p>
-                  <TbCurrencyEuro className="text-lg" />
-                </span>
-              </div>
+              <span className="bottom-9 float-right mr-2 pt-1 px-1 inline-block rounded-sm bg-amber-400 relative">
+                <p>{bike.price + " €"}</p>
+              </span>
               <span>
                 <p className="px-2 pt-2 font-extrabold">
                   {bike.title.length > 30
