@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import NavigationBar from "@/components/NavigationBar";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -11,10 +9,8 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="font-spartan">
-        <NavigationBar />
+      <body className="font-spartan bg-neutral-50 dark:bg-stone-800 transition-colors duration-500">
         <Main />
-        <Footer />
         <NextScript />
       </body>
     </Html>

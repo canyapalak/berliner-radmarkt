@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BikeData } from "../store/BikeContext.js";
-import { GrLocation } from "react-icons/gr";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiTimeFive } from "react-icons/bi";
 import useConvertDate from "../hooks/useConvertDate.js";
 import Link from "next/link.js";
@@ -27,8 +27,10 @@ function BikeCards() {
                     className="absolute flex flex-row top-0 right-0 bg-white opacity-70 
                   rounded-l-sm text-sm gap-1 p-1"
                   >
-                    <BiTimeFive className="mt-[1px]" />
-                    <p>{convertDate(bike.postTime)}</p>
+                    <BiTimeFive className="mt-[1px] dark:text-black" />
+                    <p className="dark:text-black">
+                      {convertDate(bike.postTime)}
+                    </p>
                   </div>
                   <img
                     src={bike.photos[0]}
@@ -38,7 +40,7 @@ function BikeCards() {
                 </div>
               )}
               <span className="bottom-9 float-right mr-2 pt-1 px-1 inline-block rounded-sm bg-amber-400 relative">
-                <p>{bike.price + " €"}</p>
+                <p className="dark:text-black">{bike.price + " €"}</p>
               </span>
               <span>
                 <p className="px-2 pt-2 font-extrabold">
@@ -47,8 +49,8 @@ function BikeCards() {
                     : bike.title}
                 </p>
               </span>
-              <span className="float-left flex flex-row gap-1 text-sm p-1 opacity-70">
-                <GrLocation />
+              <span className="float-left flex flex-row gap-1 text-md p-1 opacity-70 ">
+                <HiOutlineLocationMarker />
                 <p>{bike.district}</p>
               </span>
             </Link>

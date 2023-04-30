@@ -1,11 +1,27 @@
 import Image from "next/image";
 import Logo from "../assets/app-logo.png";
 import ProfileIcon from "../assets/profile.png";
+import Moon from "../assets/moon.png";
+import Sun from "../assets/sun.png";
 import Link from "next/link";
-import Deutsch from "../assets/deutsch.png";
-import English from "../assets/english.png";
+import { useEffect, useState } from "react";
 
 function NavigationBar() {
+  const [darkMode, setDarkMode] = useState(false);
+  console.log("darkMode", darkMode);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  function handleDarkMode() {
+    setDarkMode(!darkMode);
+  }
+
   return (
     <>
       <div
@@ -17,6 +33,21 @@ function NavigationBar() {
             <Image src={Logo} alt="Logo" />
           </div>
         </Link>
+
+        {!darkMode ? (
+          <Image
+            src={Moon}
+            className="text-lg ml-auto mr-14 my-auto mb-6 cursor-pointer w-5"
+            onClick={handleDarkMode}
+          />
+        ) : (
+          <Image
+            src={Sun}
+            className="text-lg ml-auto mr-14 my-auto mb-6 cursor-pointer w-5"
+            onClick={handleDarkMode}
+          />
+        )}
+
         <div className="flex flex-row gap-6 my-auto text-lg">
           <Link href="/bikes">
             <p

@@ -4,7 +4,7 @@ function SignUpPage() {
   return (
     <div
       className="w-2/5 mx-auto flex flex-col gap-2 border-2 border-neutral-400 
-    border-opacity-30 rounded-sm shadow-md py-2 px-4 mt-20"
+    border-opacity-30 rounded-sm shadow-md py-2 px-4 mt-20 dark:text-neutral-200 transition-colors duration-500"
     >
       <p className="text-center font-extrabold text-lg mb-5">Registrieren</p>
 
@@ -51,17 +51,19 @@ function SignUpPage() {
         ></input>
         <p
           className="text-center bg-gradient-to-b from-amber-300 to-amber-500 inline-block w-28 h-8 mt-1 pt-[5px] 
-          rounded-md cursor-pointer hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-400 shadow-md"
+          rounded-md cursor-pointer hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-400 shadow-md dark:text-black"
         >
           Hochladen
         </p>
       </span>
-      <p className="italic text-gray-600 ">* Pflichtfelder</p>
+      <p className="italic text-gray-600 dark:text-yellow-100">
+        * Pflichtfelder
+      </p>
 
       <p
         className="flex flex-row gap-1 justify-center bg-gradient-to-b from-amber-300 to-amber-500 
               hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-400 rounded-md py-1 shadow-md 
-              cursor-pointer w-48 mx-auto mb-3 mt-3 pt-1.5"
+              cursor-pointer w-48 mx-auto mb-3 mt-3 pt-1.5 dark:text-black"
       >
         Registrieren
       </p>
