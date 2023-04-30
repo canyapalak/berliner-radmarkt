@@ -5,8 +5,8 @@ import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { RiMessage3Line } from "react-icons/ri";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import { GrLocation } from "react-icons/gr";
 import { BiTimeFive } from "react-icons/bi";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 import useConvertDateAndTime from "@/hooks/useConvertDateAndTime";
 
 export default function BikeDetails() {
@@ -103,7 +103,7 @@ export default function BikeDetails() {
             <p className="text-left">{convertDateAndTime(oneBike.postTime)}</p>
           </span>
           <span className="flex flex-row gap-1 mb-1 ">
-            <GrLocation className="mt-0.5" />
+            <HiOutlineLocationMarker className="mt-0.5" />
             <p className="text-left ">{oneBike.district}</p>
           </span>
         </div>
@@ -136,29 +136,33 @@ export default function BikeDetails() {
             >
               {!isToggled ? (
                 <span className="flex flex-row gap-1">
-                  <FaRegStar className="mt-[1px]" />
+                  <FaRegStar className="mt-[1px] dark:text-black" />
                 </span>
               ) : (
                 <span className="flex flex-row gap-1">
-                  <FaStar className="mt-[1px]" />
+                  <FaStar className="mt-[1px] dark:text-black" />
                 </span>
               )}
             </div>
           </div>
 
           <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
-            <p className="font-bold text-lg">{oneBike.price + " €"}</p>
+            <p className="font-bold text-lg dark:text-black">
+              {oneBike.price + " €"}
+            </p>
           </span>
           <span className="flex flex-row gap-1 mt-3 mb-1">
-            <p className="font-bold text-gray-600">Typ:</p>
+            <p className="font-bold text-gray-600 dark:text-yellow-100">Typ:</p>
             <p>{oneBike.type}</p>
           </span>
           <span className="flex flex-row gap-1 mb-1">
-            <p className="font-bold text-gray-600">Art:</p>
+            <p className="font-bold text-gray-600 dark:text-yellow-100">Art:</p>
             <p>{oneBike.frame}</p>
           </span>
 
-          <p className="font-bold text-gray-600">Beschreibung:</p>
+          <p className="font-bold text-gray-600 dark:text-yellow-100">
+            Beschreibung:
+          </p>
           <p>{oneBike.description}</p>
         </div>
 
@@ -167,8 +171,8 @@ export default function BikeDetails() {
               hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-400 rounded-md py-0.5 shadow-md 
               cursor-pointer w-48 mx-auto mb-2"
         >
-          <RiMessage3Line className="mt-[5px]" />
-          <p className="pt-1">Nachricht schreiben</p>
+          <RiMessage3Line className="mt-[5px] dark:text-black" />
+          <p className="pt-1 dark:text-black">Nachricht schreiben</p>
         </div>
       </div>
     </div>
