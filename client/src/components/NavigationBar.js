@@ -29,12 +29,22 @@ function NavigationBar() {
           <span className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1">
             <p>Verkaufen</p>
           </span>
-          <span className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1">
-            <p>Einloggen</p>
-          </span>
-          <span className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1">
-            <p>Registieren</p>
-          </span>
+          <Link href="/login">
+            <p
+              to="/login"
+              className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1"
+            >
+              Einloggen
+            </p>
+          </Link>
+          <Link href="/signup">
+            <p
+              to="/signup"
+              className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1"
+            >
+              Registrieren
+            </p>
+          </Link>
           <span className="hover:bg-opacity-30 hover:bg-white rounded-md px-3 py-1.5">
             <Image src={ProfileIcon} alt="Profile" width={25} height={25} />
           </span>

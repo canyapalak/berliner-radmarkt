@@ -64,7 +64,7 @@ export default function BikeDetails() {
           alt={`Photo ${photoIndex}`}
           width={1500}
           height={1000}
-          className="relative object-contain cursor-pointer"
+          className="relative object-contain"
         />
         <span
           className="flex flex-row gap-1 absolute bottom-2 right-0 mr-2 bg-gray-800 
@@ -108,7 +108,7 @@ export default function BikeDetails() {
           </span>
         </div>
         <div className="flex flex-row gap-2 my-2">
-          <p className="my-auto text-lg underline hover:text-gray-600 cursor-pointer">
+          <p className="my-auto text-lg underline cursor-pointer">
             {oneBike.userName}
           </p>
           <Image
@@ -146,21 +146,9 @@ export default function BikeDetails() {
             </div>
           </div>
 
-          <div className="flex flex-row">
-            <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
-              <p className="font-bold text-lg">{oneBike.price + " €"}</p>
-            </span>
-
-            <div
-              className="flex flex-row gap-1 justify-center bg-gradient-to-b from-lime-300 to-lime-400 
-              hover:bg-gradient-to-b hover:from-lime-200 hover:to-lime-300 rounded-md px-2 py-1 shadow-md 
-              cursor-pointer hover:bg-lime-200"
-            >
-              <RiMessage3Line className="mt-[5px]" />
-              <p className="pt-1">Nachricht schreiben</p>
-            </div>
-          </div>
-
+          <span className="pt-1 px-1 rounded-sm bg-amber-400 mr-auto">
+            <p className="font-bold text-lg">{oneBike.price + " €"}</p>
+          </span>
           <span className="flex flex-row gap-1 mt-3 mb-1">
             <p className="font-bold text-gray-600">Typ:</p>
             <p>{oneBike.type}</p>
@@ -172,6 +160,15 @@ export default function BikeDetails() {
 
           <p className="font-bold text-gray-600">Beschreibung:</p>
           <p>{oneBike.description}</p>
+        </div>
+
+        <div
+          className="flex flex-row gap-1 justify-center bg-gradient-to-b from-amber-300 to-amber-500 
+              hover:bg-gradient-to-b hover:from-amber-200 hover:to-amber-400 rounded-md py-0.5 shadow-md 
+              cursor-pointer w-48 mx-auto mb-2"
+        >
+          <RiMessage3Line className="mt-[5px]" />
+          <p className="pt-1">Nachricht schreiben</p>
         </div>
       </div>
     </div>
