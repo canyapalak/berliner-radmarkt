@@ -12,7 +12,7 @@ function SignUpPage() {
         <p className="">Nutzername*:</p>
         <input
           className="w-64 border-2 border-neutral-400 
-               border-opacity-30 rounded-md px-2 p-1 ml-6"
+               border-opacity-30 rounded-md px-2 p-1 ml-6 dark:text-black"
           type="text"
           name="userName"
           placeholder="Nutzername"
@@ -23,7 +23,7 @@ function SignUpPage() {
         <p>E-Mail-Adresse*:</p>
         <input
           className="w-64 border-2 border-neutral-400 
-               border-opacity-30 rounded-md px-2 py-1 ml-[5px]"
+               border-opacity-30 rounded-md px-2 py-1 ml-[5px] dark:text-black"
           type="text"
           name="email"
           placeholder="E-Mail-Addresse"
@@ -34,7 +34,7 @@ function SignUpPage() {
         <p>Passwort*:</p>
         <input
           className="w-64 border-2 border-neutral-400 
-               border-opacity-30 rounded-md px-2 py-1 ml-[45px]"
+               border-opacity-30 rounded-md px-2 py-1 ml-[45px] dark:text-black"
           type="text"
           name="password"
           placeholder="Passwort"
