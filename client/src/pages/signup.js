@@ -1,6 +1,14 @@
 import Link from "next/link";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function SignUpPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div
       className="w-2/5 mx-auto flex flex-col gap-2 border-2 border-neutral-400 
@@ -31,15 +39,27 @@ function SignUpPage() {
       </span>
 
       <span className="flex flex-row gap-2 items-center">
-        <p>Passwort*:</p>
-        <input
-          className="w-64 border-2 border-neutral-400 
-               border-opacity-30 rounded-md px-2 py-1 ml-[45px] dark:text-black"
-          type="text"
-          name="password"
-          placeholder="Passwort"
-          style={{ WebkitTextSecurity: "disc" }}
-        ></input>
+        <p>Passwort:</p>
+        <div className="relative flex items-center">
+          <input
+            className="w-64 border-2 border-neutral-400 
+            border-opacity-30 rounded-md px-2 py-1 ml-[52px] dark:text-black"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Passwort"
+          />
+          {showPassword ? (
+            <AiOutlineEyeInvisible
+              className="absolute right-2 cursor-pointer dark:text-black"
+              onClick={togglePasswordVisibility}
+            />
+          ) : (
+            <AiOutlineEye
+              className="absolute right-2 cursor-pointer dark:text-black"
+              onClick={togglePasswordVisibility}
+            />
+          )}
+        </div>
       </span>
 
       <span className="flex flex-row gap-3 items-center">
