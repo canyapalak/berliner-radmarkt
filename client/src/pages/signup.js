@@ -38,6 +38,7 @@ function SignUpPage() {
           type="text"
           name="password"
           placeholder="Passwort"
+          style={{ WebkitTextSecurity: "disc" }}
         ></input>
       </span>
 

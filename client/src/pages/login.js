@@ -27,6 +27,7 @@ function LoginPage() {
           type="text"
           name="password"
           placeholder="Passwort"
+          style={{ WebkitTextSecurity: "disc" }}
         ></input>
       </span>
 
