@@ -1,4 +1,27 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
+
+const messagesSchema = new Schema({
+  userName: {
+    type: String,
+  },
+
+  userId: {
+    type: String,
+  },
+
+  profilePicture: {
+    type: String,
+  },
+
+  messageTime: {
+    type: Date,
+  },
+
+  messageText: {
+    type: String,
+  },
+});
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -25,6 +48,8 @@ const userSchema = new mongoose.Schema({
   signupTime: {
     type: Date,
   },
+
+  messages: [messagesSchema],
 
   isAdmin: {
     type: Boolean,

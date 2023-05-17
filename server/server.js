@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bikeRoutes from "./routes/bikeRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -24,6 +25,7 @@ const mongoDBConnection = async () => {
 const loadRoutes = () => {
   app.use("/api", router);
   app.use("/api/bikes", bikeRoutes);
+  app.use("/api/users", userRoutes);
 };
 
 const startServer = () => {
