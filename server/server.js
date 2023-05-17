@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bikeRoutes from "./routes/bikeRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import cloudinaryConfig from "./config/cloudinaryConfig.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -46,6 +47,7 @@ const addMiddlewares = () => {
     credentials: true,
   };
   app.use(cors(corsOptions));
+  cloudinaryConfig();
 };
 
 //IIFE
