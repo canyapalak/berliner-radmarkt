@@ -31,10 +31,6 @@ const signup = async (req, res) => {
       res.status(500).json({
         msg: "email address is invalid",
       });
-    } else if (email === "undefined") {
-      res.status(500).json({
-        msg: "email address can not be empty",
-      });
     } else if (password.length < 6) {
       res.status(500).json({
         msg: "password should be at least 6 characters",
