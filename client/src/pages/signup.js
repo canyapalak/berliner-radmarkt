@@ -228,15 +228,32 @@ function SignUpPage() {
       </p>
       {isImageFormatWrong ? (
         <span className="flex flex-row items-center">
-          <BiError className="text-rose-700 text-xs mr-1 mb-0.5" />
-          <p className="text-rose-700 text-sm ">
+          <BiError className="text-red-700 text-sm mr-1 mb-0.5" />
+          <p className="text-red-700 text-sm ">
             Die Bilddatei muss im Format ".jpg", ".jpeg" oder ".png" sein.
           </p>
         </span>
       ) : null}
+      {isMailInUse ? (
+        <span className="flex flex-row">
+          <BiError className="text-red-700 text-sm mr-1 mt-0.5" />
+          <p className="text-red-700 text-sm ">
+            Diese E-Mail-Adresse wird bereits verwendet. Probieren Sie eine
+            andere aus.
+          </p>
+        </span>
+      ) : null}
+      {isMailInvalid ? (
+        <span className="flex flex-row">
+          <BiError className="text-red-700 text-sm mr-1 mt-0.5" />
+          <p className="text-red-700 text-sm ">
+            Bitte geben Sie eine gültige E-Mail-Adresse ein.
+          </p>
+        </span>
+      ) : null}
       {isUploadSuccessful ? (
-        <span className="flex flex-row items-center">
-          <TiTick className="text-lime-700 text-xs mr-1 mb-0.5" />
+        <span className="flex flex-row ">
+          <TiTick className="text-lime-700 text-sm mr-1 mb-0.5" />
           <p className="text-lime-700 text-sm">Hochladen erfolgreich.</p>
         </span>
       ) : null}
