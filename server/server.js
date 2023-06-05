@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bikeRoutes from "./routes/bikeRoutes.js";
+import passport from "passport";
 import userRoutes from "./routes/userRoutes.js";
 import cloudinaryConfig from "./config/cloudinaryConfig.js";
+import { jwtStrategy } from "./config/passport.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -48,6 +50,8 @@ const addMiddlewares = () => {
   };
   app.use(cors(corsOptions));
   cloudinaryConfig();
+  app.use(passport.initialize());
+  passport.use(jwtStrategy);
 };
 
 //IIFE
