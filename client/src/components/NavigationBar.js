@@ -7,24 +7,36 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../store/AuthContext";
 
 function NavigationBar() {
-  const [darkMode, setDarkMode] = useState(false);
-  console.log("darkMode", darkMode);
-
   const { isToken, logOut } = useContext(AuthContext);
-  console.log("isToken", isToken);
-
-  useEffect(() => {}, [isToken]);
+  const [darkModeLoaded, setDarkModeLoaded] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    // Check if localStorage is available before accessing it
+    if (typeof window !== "undefined" && localStorage.getItem("darkMode")) {
+      const storedDarkMode = localStorage.getItem("darkMode");
+      setDarkMode(JSON.parse(storedDarkMode));
     }
-  }, [darkMode]);
+
+    setDarkModeLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (darkModeLoaded) {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem("darkMode", JSON.stringify(darkMode));
+      }
+    }
+  }, [darkMode, darkModeLoaded]);
 
   function handleDarkMode() {
-    setDarkMode(!darkMode);
+    setDarkMode((prevDarkMode) => !prevDarkMode);
   }
 
   return (
