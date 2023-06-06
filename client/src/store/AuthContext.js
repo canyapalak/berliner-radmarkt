@@ -21,6 +21,11 @@ export const AuthContextProvider = (props) => {
     });
   };
 
+  //logout function
+  function logOut() {
+    localStorage.removeItem("token");
+  }
+
   const handleLogIn = () => {
     setIsLogInSuccessful(false);
     setIsEmailWrong(false);

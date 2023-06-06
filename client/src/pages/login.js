@@ -23,6 +23,8 @@ function LoginPage() {
 
   const router = useRouter();
 
+  console.log("currentUser :>> ", currentUser);
+
   return (
     <>
       {isLogInSuccessful ? (
@@ -33,14 +35,18 @@ function LoginPage() {
           <span className="flex flex-col justify-center items-center">
             <TiTick className="w-8 h-8 text-lime-700 mb-2" />
             <p className="text-lime-700 text-center">
-              Willkommen, {currentUser?.userName}. Sie haben sich erfolgreich
-              angemeldet.
+              Willkommen, <strong>{currentUser?.userName}</strong>. Sie haben
+              sich erfolgreich angemeldet.
             </p>
-            <Link href="/bikes">
-              <p className="cursor-pointer font-extrabold text-red-700 hover:text-red-500">
-                Fahrräder
-              </p>
-            </Link>
+            <span className="flex flex-row gap-1 text-lime-700 text-center">
+              <p>Möchten Sie zu</p>
+              <Link href="/bikes">
+                <p className="cursor-pointer font-extrabold text-red-700 hover:text-red-500">
+                  Fahrrädern
+                </p>{" "}
+              </Link>
+              <p>gehen?</p>
+            </span>
           </span>
         </div>
       ) : (
